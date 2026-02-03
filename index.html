@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prime Fitness</title>
+<link rel="stylesheet" href="https://font.download/font/barlow-2">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;;
+  background-color: #0a0a0a;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 5%;
+  background-color: #000000;
+  position: relative;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #ccff00;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav-links li a:hover {
+  color: #ccff00;
+}
+
+/* Dropdown */
+.nav-links li ul {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: 0;
+  background-color: #222;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 150px;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.nav-links li:hover ul {
+  display: block;
+}
+
+.nav-links li ul li {
+  padding: 8px 20px;
+}
+
+.nav-links li ul li a {
+  font-size: 18px;
+  color: white;
+}
+
+/* Join Button */
+.join-btn {
+  background-color: #ccff00;
+  color: black;
+  padding: 12px 28px;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.join-btn:hover {
+  background-color: #d8f25b;
+  transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.2);
+  z-index: 1;
+}
+
+/* Hero Text */
+.hero .content {
+  position: relative;
+  bottom: 15px;
+  z-index: 2;
+  
+}
+
+.hero .content small {
+  color: #ccff00;
+  letter-spacing: 1px;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.hero .content h1 {
+  font-size: 80px;
+  font-weight: bolder;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 15px 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.hero .content h1 span {
+  
+  color:#ccff00 ;
+  
+}
+
+.hero .content h2 {
+  font-size: 90px;
+  font-weight: bolder;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 15px 0;
+  line-height: 1.2;
+}
+
+.hero .content h2 span {
+  color: #ccff00
+  
+}
+
+.hero .content p {
+  color: #969090;
+  font-size: 20px;
+  margin: 50px 0px ;
+  text-align: center;
+}
+
+/* Hero Buttons */
+.hero .btn-group {
+  margin-top: 20px;
+}
+
+.hero .btn-group a {
+  text-decoration: none;
+  padding: 15px 60px;
+  border-radius: 50px;
+  font-weight: bold;
+  margin: 0 10px;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.hero .btn-primary {
+  background-color: #ccff00;
+  color: black;
+}
+
+.hero .btn-primary:hover {
+  background-color: #d8f25b;
+}
+
+.hero .btn-secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.hero .btn-secondary:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Stats Boxes */
+.hero .stats {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.hero .stats .box {
+  background-color: rgba(255,255,255,0.05);
+  padding: 40px 80px ;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid #ccff00;
+}
+
+.hero .stats .box h3 {
+  color: #ccff00;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.hero .stats .box p {
+  color: #ddd;
+  font-size: 20px;
+  margin-top: 5px;
+}
+ h1 {
+    margin-top: 30px;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  p {
+    color: #999;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+    .cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 20px 50px 20px;
+    margin: 50px;
+  }
+
+  .card {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #ccff00;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover img {
+    transform: scale(1.1);
+  }
+
+  .card-content {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: #fff;
+    text-align: left;
+  }
+
+  .card-content h3 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+
+  .card-content p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+    color: #c6e34b; 
+    font-weight: bold;
+  }
+  .About{
+  display: flex;
+  margin-top: 105px;
+  margin-right: 100px;
+  justify-content: center;
+}
+.ab{
+  position: relative;
+  bottom: 10px;
+}
+  
+  .content h2{
+    margin-left: 400px;
+    margin-top: 50px;
+     color: #ccff00; 
+      font-size: 2em;
+  }
+    .content h1{
+    margin-left: 400px;
+    margin-top: 20px;
+     color: #ffffff; 
+      font-size: 3.5em;
+      text-align: left;
+  }
+    .content p{
+    margin-left: 400px;
+    margin-top: 20px;
+     color: #696969; 
+      font-size: 18px;
+      text-align: left;
+      line-height: 1.5;
+  }
+      .content p p{
+    margin-left: 400px;
+    margin-top: 20px;
+     color: #ffffff; 
+      font-size: 18px;
+      text-align: left;
+      line-height: 1.5;
+  }
+  .tagline p{
+    margin-left: 400px;
+    margin-top: 20px;
+     color: #ccff00; 
+      font-size: 18px;
+      text-align: left;
+      line-height: 2.5;
+      font-size: 30px;
+  }
+  .tagline span{
+    color: #ffffff; 
+  }
+  .image img{
+    border-radius: 50px;
+    height: 85%;
+  }
+  .content{
+    margin-top: 90px;
+  }
+  .faq {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 0 20px;
+  margin-top: -100px;
+}
+
+.faq h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.faq h2 span {
+  color: #ccff00;
+}
+
+/* FAQ Item */
+details {
+  background-color: #111;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 18px 20px;
+  cursor: pointer;
+}
+
+summary {
+  font-size: 16px;
+  font-weight: bold;
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Plus / Minus Icon */
+summary::after {
+  content: "+";
+  float: right;
+  font-size: 20px;
+  color: #ccff00;
+}
+
+details[open] summary::after {
+  content: "-";
+}
+
+/* Answer */
+details p {
+  margin-top: 15px;
+  text-align: left;
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+
+.join-form {
+  max-width: 600px;
+  margin: 120px auto;
+  padding: 40px;
+  background: #111;
+  border-radius: 20px;
+  border: 1px solid #ccff00;
+  text-align: center;
+}
+
+.join-form h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.join-form h2 span {
+  color: #ccff00;
+}
+
+.join-form p {
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.join-form input,
+.join-form select,
+.join-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: #0a0a0a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+}
+
+.join-form input:focus,
+.join-form select:focus,
+.join-form textarea:focus {
+  outline: none;
+  border-color: #ccff00;
+}
+
+.join-form button {
+  width: 100%;
+  padding: 15px;
+  background: #ccff00;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.join-form button:hover {
+  background: #d8f25b;
+  transform: scale(1.03);
+}
+
+.fitness-footer {
+  background-color: #000;
+  color: #fff;
+  padding: 60px 20px 30px;
+  font-family: 'Arial', sans-serif;
+}
+.fitness-footer h1{
+  margin-right: 130px;
+}
+
+.fitness-footer h1 span {
+  color: #ccff00;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  flex: 1 1 300px;
+}
+
+.footer-brand p {
+  color: #aaa;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.social-icons a {
+  color: #fff;
+  margin-right: 15px;
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #ccff00;
+}
+
+.footer-links,
+.footer-support,
+.footer-contact {
+  flex: 1 1 200px;
+}
+
+.footer-links h3,
+.footer-support h3,
+.footer-contact h3 {
+  color: #ccff00;
+  margin-bottom: 15px;
+}
+
+.footer-links ul,
+.footer-support ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li,
+.footer-support ul li {
+  margin-bottom: 10px;
+}
+
+.footer-links ul li a,
+.footer-support ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links ul li a:hover,
+.footer-support ul li a:hover {
+  color: #ccff00;
+}
+
+.footer-contact p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  margin-right: 185px;
+}
+
+
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* ===============================
+   RESPONSIVE MEDIA QUERIES
+================================= */
+
+/* Large tablets / small desktops */
+@media (max-width: 1024px) {
+  .hero .content h1 { font-size: 55px; }
+  .hero .content h2 { font-size: 60px; }
+  .hero .content p { font-size: 18px; margin: 30px 0; }
+  
+  .cards { margin: 30px; }
+  .card { width: 420px; height: 260px; }
+  
+  .About { flex-direction: column; margin: 50px 20px; }
+  .About .content, .About .image { margin: 0 auto; text-align: center; }
+  .content h1, .content h2, .content p, .tagline p { margin-left: 0; }
+  .image img { height: auto; width: 80%; }
+  
+  .faq { margin: 60px 20px; }
+  .join-form { padding: 30px; margin: 80px 20px; }
+}
+
+/* Tablets / smaller screens */
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; gap: 15px; }
+  .nav-links { flex-direction: column; gap: 10px; align-items: center; }
+  .join-btn { margin-top: 10px; }
+
+  .hero { height: auto; padding: 100px 20px; }
+  .hero .content h1 { font-size: 40px; }
+  .hero .content h2 { font-size: 42px; }
+  .hero .content p { font-size: 16px; }
+  .hero .btn-group a { padding: 12px 35px; font-size: 16px; }
+
+  .hero .stats { flex-direction: column; gap: 15px; }
+  .hero .stats .box { padding: 25px 40px; }
+
+  .cards { margin: 20px 10px; }
+  .card { width: 100%; height: 240px; }
+
+  .content h1 { font-size: 28px; text-align: center; }
+  .content h2 { font-size: 22px; text-align: center; }
+  .content p { font-size: 16px; text-align: center; line-height: 1.6; }
+  .tagline p { font-size: 20px; line-height: 2; text-align: center; }
+
+  .faq { margin: 40px 20px; }
+  .join-form { margin: 60px 20px; padding: 25px; }
+  .join-form h2 { font-size: 28px; }
+  .join-form p { font-size: 16px; }
+}
+
+/* Small mobile phones */
+@media (max-width: 480px) {
+  .logo { font-size: 22px; }
+  
+  .hero .content h1, .hero .content h2 { font-size: 28px; }
+  .hero .stats .box h3 { font-size: 26px; }
+  .hero .btn-group a { padding: 10px 25px; font-size: 14px; }
+
+  .cards { gap: 15px; }
+  .card { height: 200px; }
+
+  .content h1 { font-size: 22px; }
+  .content h2 { font-size: 18px; }
+  .content p { font-size: 14px; }
+
+  .tagline p { font-size: 18px; line-height: 2; }
+
+  .join-form h2 { font-size: 24px; }
+  .join-form p { font-size: 14px; }
+  .join-form input, .join-form select, .join-form textarea { font-size: 14px; padding: 12px 15px; }
+  .join-form button { font-size: 16px; padding: 12px; }
+
+  .footer-container { flex-direction: column; gap: 30px; }
+  .footer-brand, .footer-links, .footer-support, .footer-contact { margin: 0 auto; text-align: center; }
+  .footer-contact p { margin-right: 0; }
+}
+
+
+
+ 
+
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">PRIME <span>FITNESS</span></div>
+
+  <ul class="nav-links">
+    <li><a href="#">HOME</a></li>
+    <li><a href="#About">ABOUT</a></li>
+    <li>
+      <a href="#">EXERCISES ▼</a>
+      <ul>
+        <li><a href="#">Cycling</a></li>
+        <li><a href="#">Swimmming</a></li>
+        <li><a href="#">Sports</a></li>
+        <li><a href="#">Fitness</a></li>
+        <li><a href="#">SPA</a></li>
+        <li><a href="#">Group Exercise</a></li>
+      </ul>
+    </li>
+    <li><a href="#faq">FAQ'S</a></li>
+  </ul>
+
+ <a href="#join-form" class="join-btn">Join Now</a>
+
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+  <img src="Images/08.png" alt="Gym Hero">
+
+  <div class="content">
+    <small>EST. 1982 | UN BASED HEALTH SERVICES</small>
+    <h1>SCULPT YOUR <span>BODY</span></h1>
+    <h2>ELEVATE YOUR <span>SPIRIT</span></h2>
+    <p>The flagship brand for Prime Fitness Club Ltd. Pioneer in Integrated <br>Health Club Management Solutions.</p>
+
+    <div class="btn-group">
+      <a href="#" class="btn-primary">Get Started</a>
+      <a href="#" class="btn-secondary">Learn More</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="box">
+      <h3>40+</h3>
+      <p>Years Experience</p>
+    </div>
+    <div class="box">
+      <h3>100%</h3>
+      <p>Advanced Equip</p>
+    </div>
+  </div>
+</div>
+
+
+  <h1>UNLEASH YOUR POTENTIAL</h1>
+<p>Click any activity below to view details</p>
+
+<div class="cards">
+ <div class="card">
+    <img src="Images/cycling.jpg" alt="Cycling">
+    <div class="card-content">
+      <h3>CYCLING</h3>
+      <p>CARDIO & ENDURANCE</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="Images/Swim.png" alt="Cycling">
+    <div class="card-content">
+      <h3>SWIMMING</h3>
+      <p>FULL BODY WORKOUT</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="Images/sports.jpg" alt="Cycling">
+    <div class="card-content">
+      <h3>SPORTS</h3>
+      <p>STRENGTH TRAINING</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="Images/fit.png" alt="Cycling">
+    <div class="card-content">
+      <h3>Fitness</h3>
+      <p>CARDIO & ENDURANCE</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="Images/group excersice.png" alt="Cycling">
+    <div class="card-content">
+      <h3>Group Exercise</h3>
+      <p>CARDIO & ENDURANCE</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="Images/Spa.png" alt="Cycling">
+    <div class="card-content">
+      <h3>SPA</h3>
+      <p>CARDIO & ENDURANCE</p>
+    </div>
+  </div>
+  </div>
+  <h1 >About Us</h1>
+ <div class="About">
+  
+  <div class="content">
+  <h2>INSPIRED TO</h2>
+  <h1>INSPIRED YOUR</h1>
+  <H1>BEST SELF</H1>
+  <p>“Our gym is more than just a place to work out — it’s a community built on discipline, <br>dedication, and results. We provide a motivating environment equipped with modern machines <br>and guided by experienced trainers who are committed to helping you reach your fitness goals.</p>
+<div class="tagline">
+  <p> ✔ <span>State of the art Equipment </span><br>
+✔<span> Professional Trainers</span> <br>
+✔ <span>Flagship Brand since 1982.</span></p>
+</div>
+  </div>
+  <div class="image">
+    <img src="Images/01.png" alt="" >
+  </div>
+ </div>
+ <section class="faq">
+  <h2>Frequently Asked <span>Questions</span></h2>
+
+  <details>
+    <summary>What are Prime Fitness opening hours?</summary>
+    <p>Prime Fitness is open 24/7, providing flexible workout hours for all members.</p>
+  </details>
+
+  <details>
+    <summary>Do you offer personal training?</summary>
+    <p>Yes, we provide certified personal trainers to help you achieve your fitness goals.</p>
+  </details>
+
+  <details>
+    <summary>Is there a free trial available?</summary>
+    <p>Yes, we offer a 3-day free trial for new members.</p>
+  </details>
+
+  <details>
+    <summary>Do you have separate plans for beginners?</summary>
+    <p>Absolutely! We have customized plans for beginners, intermediate, and advanced levels.</p>
+  </details>
+</section>
+
+<section id="join-form" class="join-form">
+  <h2>Join <span>Prime Fitness</span></h2>
+  <p>Start your fitness journey today</p>
+
+  <form>
+    <div class="form-group">
+      <input type="text" placeholder="Full Name" required>
+    </div>
+
+    <div class="form-group">
+      <input type="email" placeholder="Email Address" required>
+    </div>
+
+    <div class="form-group">
+      <input type="tel" placeholder="Phone Number" required>
+    </div>
+
+    <div class="form-group">
+      <select required>
+        <option value="">Select Membership Plan</option>
+        <option>Monthly</option>
+        <option>Quarterly</option>
+        <option>Yearly</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <textarea placeholder="Your Fitness Goal" rows="4"></textarea>
+    </div>
+
+    <button type="submit">Join Now</button>
+  </form>
+</section>
+
+<footer class="fitness-footer">
+  <div class="footer-container">
+    <!-- Brand Info -->
+    <div class="footer-brand">
+      <h1>PRIME <span>FITNESS</span></h1>
+      <p>Established in 1982. The flagship brand for Prime Fitness Club Ltd.<br>
+      UN-based health and fitness services provider.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- Support -->
+    <div class="footer-support">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Find Us</h3>
+      <p> 123 Fitness Ave, Wellness City</p>
+      <p> +1(555) 123-4567</p>
+      <p> info@primefitness.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Prime Fitness. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+</body>
+</html>
